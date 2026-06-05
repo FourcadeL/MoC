@@ -1,0 +1,35 @@
+# Generic gitignore template
+
+# Global
+build/
+out/
+.cache
+
+# OS
+.DS_Store
+.DS_Store?
+.vscode/
+.idea
+
+
+# Python
+__pycache__/
+
+# Ocaml
+_build
+_opam
+.merlin
+.dune
+*.install
+*.cmi
+*.cmo
+*.cmx
+
+
+
+# Specific
+*.pce
+*.gb
+*.sym
+*.lst
+

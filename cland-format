@@ -1,0 +1,5 @@
+# File to specify how clang should format code
+
+
+IndentWidth: 4
+
