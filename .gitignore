@@ -8,6 +8,13 @@ out/
 # C
 *.out
 
+
+# Cmake
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/
+
+
 # OS
 .DS_Store
 .DS_Store?
