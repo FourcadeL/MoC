@@ -44,7 +44,7 @@ void display_usage() {
 void display_parameters(parameters param) {
   printf("Requested parameters :\n");
   printf("\tinput path : %s\n", param.input_image_path);
-  printf("\tinput dir : %s\n", param.input_dir_pah);
+  printf("\tinput dir : %s\n", param.input_dir_path);
   printf("\toutput path : %s\n", param.output_image_path);
   printf("\tnb threads : %u\n", param.threads);
   printf("\ttileres : %u\n", param.tileres);
@@ -64,7 +64,7 @@ parameters init_parameters() {
                              // final image
   ret.variety = DEFAULT_VARIETY; // default variety parameter
   ret.input_image_path[0] = '\0';
-  ret.input_dir_pah[0] = '\0';
+  ret.input_dir_path[0] = '\0';
   strncpy(ret.output_image_path, DEFAULT_OUTPUT, MAX_PATH_LEN - 1);
   return ret;
 }
@@ -126,7 +126,7 @@ parameters parse_args(int argc, char *argv[]) {
 
 
   strncpy(ret.input_image_path, argv[optind++], MAX_PATH_LEN);  // get input image
-  strncpy(ret.input_dir_pah, argv[optind], MAX_PATH_LEN);
+  strncpy(ret.input_dir_path, argv[optind], MAX_PATH_LEN);
 
   return ret;
 }

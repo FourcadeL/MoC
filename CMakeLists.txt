@@ -20,11 +20,14 @@ project(MoC)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Just list all source files together in the executable target.
 # CMake will compile each .c file and link them into one binary.
 add_executable(moc
     src/main.c
     src/parse.c
+    src/tileheap.c
 )
 
 # So that #include "parse.h" works inside main.c and parse.c
