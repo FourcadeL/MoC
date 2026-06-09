@@ -28,9 +28,22 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_executable(moc
     src/main.c
     src/parse.c
+    src/commqueue.c
     src/tileheap.c
+    src/tileset.c
     src/stb_implem.c
 )
 
-# So that #include "parse.h" works inside main.c and parse.c
 target_include_directories(moc PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
+# Add libraries (namely math for stb_image)
+target_link_libraries(moc PRIVATE
+  m       # -lm (math)
+  pthread # -lpthread
+)
+
+# Add compiler options
+target_compile_options(moc PRIVATE
+  -Wall
+  -Wextra
+)
