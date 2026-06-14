@@ -22,18 +22,20 @@ typedef struct {
 typedef struct {
   queue_elem *content;             // Table of pointers to queue_elem
   unsigned int capacity, head, tail, size;
-  unsigned int active_workers, workers_nb;
+  unsigned int closed;            // 0 -> queue is active | 1 -> queue is closed
   pthread_mutex_t lock;
   pthread_cond_t not_empty, not_full;
 } comm_queue;
 
 // ------------ Functions defs ------------
-static comm_queue *cq_init(unsigned int capacity, unsigned int nb_workers);
-static void cq_reset(comm_queue *q);
-static void cq_destroy(comm_queue *q);
+// comm_queue *cq_init(unsigned int capacity);
+void cq_init(comm_queue *q, unsigned int capacity);
+void cq_reset(comm_queue *q);
+void cq_close(comm_queue *q);
+void cq_destroy(comm_queue *q);
 
-static void cq_push(comm_queue *q, queue_elem elem);
-static queue_elem cq_pop(comm_queue *q);
+void cq_push(comm_queue *q, queue_elem elem);
+queue_elem cq_pop(comm_queue *q);
 // ----------------------------------------
 
 #endif // !COMM_QUEUE_H

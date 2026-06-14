@@ -32,6 +32,10 @@ add_executable(moc
     src/tileheap.c
     src/tileset.c
     src/stb_implem.c
+    src/img_utils.c
+    src/threads/read_thread.c
+    src/threads/prod_thread.c
+    src/threads/fit_thread.c
 )
 
 target_include_directories(moc PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
@@ -46,4 +50,5 @@ target_link_libraries(moc PRIVATE
 target_compile_options(moc PRIVATE
   -Wall
   -Wextra
+  -O3
 )

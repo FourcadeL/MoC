@@ -3,6 +3,7 @@
 
 
 #ifndef TILE_HEAP_H
+#define TILE_HEAP_H
 
 typedef struct {
   double match_score;           // the element match score (lesser is better)
@@ -16,11 +17,11 @@ typedef struct {
 } tile_heap;
 
 // ------------ Functions defs ------------
-static void th_init(tile_heap *h, unsigned int capacity);     // initialize a heap in place
-static double th_get_max_score(tile_heap *h);                 // return the maximum score of the heap
-static void th_push(tile_heap *h, heap_elem elem);            // pushes a new heap_element onto the stack
+void th_init(tile_heap *h, unsigned int capacity);     // initialize a heap in place
+double th_get_max_score(tile_heap *h);                 // return the maximum score of the heap
+void th_push(tile_heap *h, heap_elem elem);            // pushes a new heap_element onto the stack
 // WARNING: This destroys the heap structure
-static heap_elem *th_get_sorted_elems(tile_heap *h);          // return the sorted elements of the heap
+heap_elem *th_get_sorted_elems(tile_heap *h);          // return the sorted elements of the heap
 // ----------------------------------------
 
 #endif // !TILE_HEAP_H

@@ -29,9 +29,16 @@ void ts_add(tileset *ts, tile t) {
 }
 
 void ts_destroy(tileset *ts) {
-  free(ts->data);
   while (pthread_mutex_destroy(&ts->lock) == EBUSY) {
     pthread_mutex_lock(&ts->lock);
     pthread_mutex_unlock(&ts->lock);
   }
+
+  // Loop on the tiles to free their data
+  for (unsigned int tile_index = 0; tile_index < ts->size; tile_index += 1) {
+    free(ts->data[tile_index].large_rgb);
+    free(ts->data[tile_index].small_rgb);
+  }
+
+  free(ts->data);
 }

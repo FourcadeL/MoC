@@ -9,8 +9,8 @@
 
 // ------------ Default Values ------------
 #define DEFAULT_THREADS 4 // will be changed at execution
-#define DEFAULT_TILERES 80
-#define DEFAULT_MATCHRES 7
+#define DEFAULT_TILERES 90
+#define DEFAULT_MATCHRES 20
 #define DEFAULT_IMRES 140
 #define DEFAULT_VARIETY 40
 #define DEFAULT_OUTPUT "mosaic.jpg"
@@ -78,7 +78,7 @@ parameters parse_args(int argc, char *argv[]) {
       display_usage();
       exit(EXIT_FAILURE);
     case 'o':
-      strncpy(ret.output_image_path, optarg, MAX_PATH_LEN);
+      strncpy(ret.output_image_path, optarg, MAX_PATH_LEN-1);
       break;
     case 't':
       ret.threads = atoi(optarg);
@@ -118,15 +118,9 @@ parameters parse_args(int argc, char *argv[]) {
     ret.matchres = DEFAULT_MATCHRES;
   }
 
-  // compute block size and match tile size
-  ret.tile_block_size = ret.tileres / ret.matchres;
-  if (ret.tile_block_size < 1) {
-    ret.tile_block_size = 1;
-  }
 
-
-  strncpy(ret.input_image_path, argv[optind++], MAX_PATH_LEN);  // get input image
-  strncpy(ret.input_dir_path, argv[optind], MAX_PATH_LEN);
+  strncpy(ret.input_image_path, argv[optind++], MAX_PATH_LEN-1);  // get input image
+  strncpy(ret.input_dir_path, argv[optind], MAX_PATH_LEN-1);
 
   return ret;
 }

@@ -50,20 +50,20 @@ static void heap_percole_downward(tile_heap *h, unsigned int idx) {    // percol
 }
 // ----------------------------------------
 
-static void th_init(tile_heap *h, unsigned int capacity) {
+void th_init(tile_heap *h, unsigned int capacity) {
   h->data = calloc(capacity, sizeof(heap_elem));
   h->size = 0;
   h->capacity = capacity;
 }
 
-static double th_get_max_score(tile_heap *h) {
+double th_get_max_score(tile_heap *h) {
   if (h->size < h->capacity) {
     return DBL_MAX;
   }
   return h->data[0].match_score;
 }
 
-static void th_push(tile_heap *h, heap_elem elem) {
+void th_push(tile_heap *h, heap_elem elem) {
   if (h->size < h->capacity) {
     h->data[h->size] = elem;
     heap_precole_upward(h, h->size++);
@@ -73,7 +73,7 @@ static void th_push(tile_heap *h, heap_elem elem) {
   }
 }
 
-static heap_elem *th_get_sorted_elems(tile_heap *h) {
+heap_elem *th_get_sorted_elems(tile_heap *h) {
   qsort(h->data, h->size, sizeof(heap_elem), heap_elem_compare);
   return h->data;
 }

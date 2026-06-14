@@ -11,8 +11,7 @@ typedef struct {
   unsigned int variety;                   // the variety parameter
   char input_image_path[MAX_PATH_LEN];    // the input image
   char output_image_path[MAX_PATH_LEN];   // the output impage
-  char input_dir_path[MAX_PATH_LEN];       // the tiles input path
-  unsigned int tile_block_size;           // the size (in pixels) of a matching block in the tile (computed)
+  char input_dir_path[MAX_PATH_LEN];      // the tiles input path
 } parameters;
 
 
