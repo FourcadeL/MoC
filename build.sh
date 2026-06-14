@@ -12,6 +12,6 @@ fi
 
 cd build && cmake .. && make
 
-if [ $? = 0 ]; then
-	./moc
-fi
+# if [ $? = 0 ]; then
+# 	./moc
+# fi

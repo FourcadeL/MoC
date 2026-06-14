@@ -31,14 +31,14 @@ void display_usage() {
          "default is 8)\n");
   printf("\t--tileres, -l TILERES\n");
   printf("\t                      The resolution (in pixels) of the tiles "
-         "(default is 50)\n");
+         "(default is %d)\n", DEFAULT_TILERES);
   printf("\t--matchres, -m MATCHRES\n");
-  printf("\t                      Tile matching resolution (default is 5)\n");
+  printf("\t                      Tile matching resolution (default is %d)\n", DEFAULT_MATCHRES);
   printf("\t--imres, -r IMRES     The horizontal resolution of resulting image "
-         "in number of tiles (default is 50)\n");
+         "in number of tiles (default is %d)\n", DEFAULT_IMRES);
   printf("\t--variety, -v VARIETY\n");
   printf("\t                      The variety parameter to avoid reusing the "
-         "same tile (default is 40)\n");
+         "same tile (default is %d)\n", DEFAULT_VARIETY);
 }
 
 void display_parameters(parameters param) {
