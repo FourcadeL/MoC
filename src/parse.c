@@ -9,10 +9,10 @@
 
 // ------------ Default Values ------------
 #define DEFAULT_THREADS 4 // will be changed at execution
-#define DEFAULT_TILERES 90
-#define DEFAULT_MATCHRES 20
-#define DEFAULT_IMRES 140
-#define DEFAULT_VARIETY 40
+#define DEFAULT_TILERES 80
+#define DEFAULT_MATCHRES 10
+#define DEFAULT_IMRES 130
+#define DEFAULT_VARIETY 30
 #define DEFAULT_OUTPUT "mosaic.jpg"
 // ----------------------------------------
 

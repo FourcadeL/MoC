@@ -141,9 +141,10 @@ int main(int argc, char *argv[]) {
 
   printf("Found %d tiles !\n", ts.size);
 
-  if (ts.size*2 <= p.variety) {
-    printf("ERROR : Your variety parameter (-v %d) is too large for a tileset of %d pictures\nPlease try again with a smaller parameter", p.variety, ts.size);
-    exit(EXIT_FAILURE);
+  if (ts.size <= p.variety*4) {
+    printf("ERROR : Your variety parameter (-v %d) is too large for a tileset of %d pictures\n", p.variety, ts.size);
+    p.variety = (ts.size / 8) + 1;
+    printf("Your variety parameter has been forced to : %d\n", p.variety);
   }
 
 
